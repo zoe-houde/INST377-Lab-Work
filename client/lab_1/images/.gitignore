@@ -4,6 +4,14 @@
 <html>
   <head>
     <title>Images</title>
+    <!-- In JPGs section -->
+<img src='images/mochi.jpg' width='75'/>
+
+<!-- In GIFs section -->
+<img src='images/mochi.gif' width='75'/>
+
+<!-- In PNGs section -->
+<img src='images/mochi.png' width='75'/>
   </head>
   <body>
     <h1>Images</h1>
