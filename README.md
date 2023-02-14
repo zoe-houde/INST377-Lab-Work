@@ -9,4 +9,4 @@ You can check your page deployment through the Settings tab, under Pages on the 
 
 ## Using this repository for class
 You will initially make edits to labs within the /client . ..folder. The submission link for your lab will be to the working site on GH Pages, which will be something like:
-https://your-username.github.io/INST377-Lab-Work/client/lab_1/
+https://your-username.github.io/INST377-Lab-Work/client/lab_1/ ..
