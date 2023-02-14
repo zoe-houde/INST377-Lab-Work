@@ -8,5 +8,5 @@ If correctly deployed through GH Pages, this repository will be live at https://
 You can check your page deployment through the Settings tab, under Pages on the left-hand side.
 
 ## Using this repository for class
-You will initially make edits to labs within the /client folder. The submission link for your lab will be to the working site on GH Pages, which will be something like:
+You will initially make edits to labs within the /client . ..folder. The submission link for your lab will be to the working site on GH Pages, which will be something like:
 https://your-username.github.io/INST377-Lab-Work/client/lab_1/
