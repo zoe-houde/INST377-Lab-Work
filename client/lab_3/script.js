@@ -28,6 +28,8 @@ function updateSlidePosition() {
   slides[slidePosition].classList.add('visible');
 }
 
+  slides[slidePosition].classList.add('visible');
+
 function moveToNextSlide() {
   /*
     add an if statement here that checks
