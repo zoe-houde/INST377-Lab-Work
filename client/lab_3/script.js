@@ -24,6 +24,7 @@ function updateSlidePosition() {
     slide.classList.add('hidden');
   });
 
+
   slides[slidePosition].classList.add('visible');
 }
 
@@ -34,6 +35,12 @@ function moveToNextSlide() {
     and if so, sets your slidePosition to the first index of an array
     if not, set the slidePosition to the current position plus one
   */
+ if(slidePosition === totalSlides - 1){
+  slidePosition = 0;
+ } else {
+  slidePosition += 1;
+ }
+
   updateSlidePosition(); // this is how you call a function within a function
 }
 function moveToPrevSlide() {
@@ -42,10 +49,17 @@ function moveToPrevSlide() {
     add an if statement here that checks
     if you're already at the first index position for an array
     and if so, sets your slidePosition to the last slide position in totalSlides
-    if not, set the slidePosition to the current position minus one
+    if not, set the sidePosition to the current position minus one
   */
-  updateSlidePosition();
-}
+
+  if(slidePosition === 0){
+      slidePosition == totalSlides+1;
+    } else {
+      slidePosition -= 1;
+    }
+    
+      updateSlidePosition(); // this is how you call a function within a function
+    }
 
 /*
   These two functions have been assigned via "addEventListener"
@@ -59,3 +73,9 @@ document.querySelector('.next') // Get the appropriate element (<button class="n
 
 // Paying close attention to the above queryselector, write one that fires
 // when you want a "prev" slide
+
+document.querySelector('.prev') // Get the appropriate element (<button class="next">)
+  .addEventListener('click', () => { // set an event listener on it - when it's clicked, do this callback function
+    console.log('clicked prev'); // let's tell the client console we made it to this point in the script
+    moveToNextSlide(); // call the function above to handle this
+  });
