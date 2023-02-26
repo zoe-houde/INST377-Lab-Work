@@ -43,7 +43,7 @@ a {
   text-decoration: none;
 }
 
-h2 {
+h2, h3 {
   margin:0;
   padding:0;
   padding-bottom:1.5rem;
@@ -59,7 +59,9 @@ form {
   - like this: <div class="wrapper">
   - note that the period vanishes there!
 */
-
+div {
+  border: 2px dashed rgba(0, 0, 0, 0.8);
+}
 
 .wrapper {
   min-height: 100vh;
