@@ -96,8 +96,8 @@ form {
   /* this will push other blocks out of the way */
 
   /* colors */
-  background-color: #ffe08a;
-  color: #4a4a4a;
+  background-color: #2c7a65;
+  color: #1a2b25;
 
   /* shapes */
   border-radius: 6px;
@@ -177,7 +177,7 @@ form {
   /* Hue, saturation, luminosity, alpha */
   background-color: hsla(0, 0%, 90%, 0.15);
   /* red, green, blue, alpha */
-  color: rgb(246, 169, 93);
+  color: rgb(15, 88, 38);
   text-decoration: none;
 }
 
@@ -303,7 +303,7 @@ form label {
   /* Rules in here will only apply when a screen is the correct size */
   /* check it out by using your developer tools to shrink your screen-size */
   .container {
-    background-color: rgba(247, 142, 224, 0.65);
+    background-color: rgba(243, 164, 226, 0.65);
   flex-direction: column;
   justify-content: center;
   align-items: center;
