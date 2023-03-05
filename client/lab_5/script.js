@@ -59,6 +59,7 @@ async function mainEvent() { // the async keyword means we can make API requests
       simply won't work.
     */
     console.table(currentList); 
+
   });
 
  
@@ -71,9 +72,8 @@ async function mainEvent() { // the async keyword means we can make API requests
     console.log(formProps);
     const newList = filterList(currentList, formProps.resto);
 
+    console.log(newList);
   })
-
-
   /*
     Now that you HAVE a list loaded, write an event listener set to your filter button
     it should use the 'new FormData(target-form)' method to read the contents of your main form
@@ -86,8 +86,6 @@ async function mainEvent() { // the async keyword means we can make API requests
     you should get approximately 46 results
   */
 }
-
-
 /*
   This adds an event listener that fires our main event only once our page elements have loaded
   The use of the async keyword means we can "await" events before continuing in our scripts
