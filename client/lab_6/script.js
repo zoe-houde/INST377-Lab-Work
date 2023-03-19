@@ -25,7 +25,14 @@ function filterList(list, query) {
     const lowerCaseQuery = query.toLowerCase(); // PiZZa --> pizza
     return lowerCaseName.includes(lowerCaseQuery); //truth case
   })
-
+function cutRestaurantList(list) {
+  console.log('fired cut list');
+  const range = [...Array(15).keys()]; //new arrary
+  return newArray = range.map((item)=> {
+      const index = getRandomIntInclusive(0, list.length -1);
+      return list[index]
+  }) //map is like 'for each' returns new array  
+}
   /*
     Using the .filter array method, 
     return a list that is filtered by comparing the item name in lower case
@@ -37,20 +44,16 @@ function filterList(list, query) {
 
 async function mainEvent() { // the async keyword means we can make API requests
   const mainForm = document.querySelector('.main_form'); // This class name needs to be set on your form before you can listen for an event on it
-  const filterButton =document.querySelector('.filter_button');
-  // Add a querySelector that targets your filter button here
-
+  const filterButton =document.querySelector('#filter');
+  const loadDataButton = document.querySelector('#data_load');
+  const generateListButton = document.querySelector('#generate');
   let currentList = []; // this is "scoped" to the main event function
   
   /* We need to listen to an "event" to have something happen in our page - here we're listening for a "submit" */
-  mainForm.addEventListener('submit', async (submitEvent) => { // async has to be declared on every function that needs to "await" something
-
-    // This prevents your page from becoming a list of 1000 records from the county, even if your form still has an action set on it
-    submitEvent.preventDefault(); 
-    
-    // this is substituting for a "breakpoint" - it prints to the browser to tell us we successfully submitted the form
-    console.log('form submission'); 
-
+  mainForm.addEventListener('click', async (submitEvent) => { // async has to be declared on every function that needs to "await" something
+  loadDataButton.addEventListener('click', async (submitEvent) => {
+    submitEvent.preventDefault();
+    console.log('form submission');
     /*
       ## GET requests and Javascript
         We would like to send our GET request so we can control what we do with the results
@@ -67,6 +70,9 @@ async function mainEvent() { // the async keyword means we can make API requests
 
     // This changes the response from the GET into data we can use - an "object"
     currentList = await results.json();
+    console.table(currentList);
+
+  });
 
     /*
       This array initially contains all 1,000 records from your request,
@@ -79,7 +85,7 @@ async function mainEvent() { // the async keyword means we can make API requests
   });
 
  
-  filterButton.addEventListener('click', (event) => {
+  filterDataButton.addEventListener('click', (event) => {
     console.log('clicked FilterButton');
 
     const formData = new FormData(mainForm);
@@ -87,8 +93,15 @@ async function mainEvent() { // the async keyword means we can make API requests
 
     console.log(formProps);
     const newList = filterList(currentList, formProps.resto);
-
     console.log(newList);
+    injectHTML (newList);
+  })
+
+  generateListButton.addEventListener('click', (event) => {
+    console.log('generate new list');
+    const restaurantsList = cutRestaurantList(currentList);
+    console.log(restaurantsList)
+    injectHTML(restaurantsList);
   })
   /*
     Now that you HAVE a list loaded, write an event listener set to your filter button
@@ -101,7 +114,6 @@ async function mainEvent() { // the async keyword means we can make API requests
     Fire it here and filter for the word "pizza"
     you should get approximately 46 results
   */
-}
 /*
   This adds an event listener that fires our main event only once our page elements have loaded
   The use of the async keyword means we can "await" events before continuing in our scripts
