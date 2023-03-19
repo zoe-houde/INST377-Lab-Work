@@ -2,6 +2,21 @@
   Hook this script to index.html
   by adding `<script src="script.js">` just before your closing `</body>` tag
 */
+function getRandomIntInclusive(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1) + min); // The maximum is inclusive and the minimum is inclusive
+}
+
+function injectHTML(list) {
+  console.log('fired injectHTML')
+  const target = document.querySelector('#restaurant_list')
+  target.innerHTML = '';
+  list.forEach((item, index) => {
+  const str = `<li>${item.name}</li>` //backtick allows us to bring in varibles
+  target.innerHTML += str
+  })
+}
 
 /* A quick filter that will return something based on a matching input */
 function filterList(list, query) {
@@ -59,6 +74,7 @@ async function mainEvent() { // the async keyword means we can make API requests
       simply won't work.
     */
     console.table(currentList); 
+    injectHTML (currentList);
 
   });
 
