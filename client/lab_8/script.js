@@ -114,7 +114,7 @@ function markerPlace (array, map) {
       const results = await fetch('https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json');
   
       // This changes the response from the GET into data we can use - an "object"
-      const storedList = await results.json();
+      const storedList= await results.json();
       localStorage.setItem('storedData', JSON.stringify(storedList));
       parsedData = storedList;
 
